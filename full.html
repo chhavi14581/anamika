@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love 💖</title>
+<style>
+  /* ===== Body & Background ===== */
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #ffe6f0, #ffccff);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  /* ===== Heart Particle Background ===== */
+  .heart {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: pink;
+    transform: rotate(45deg);
+    animation: float 7s linear infinite;
+    z-index: 0;
+  }
+
+  .heart:before,
+  .heart:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: pink;
+    border-radius: 50%;
+  }
+
+  .heart:before {
+    top: -5px;
+    left: 0;
+  }
+
+  .heart:after {
+    left: 5px;
+    top: 0;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-1000px) rotate(45deg); opacity: 0; }
+  }
+
+  /* ===== Gallery Card ===== */
+  .card {
+    position: relative;
+    background: #fff0f5;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    margin: 15px 10px;
+    width: 250px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 1;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  }
+
+  .card img {
+    width: 100%;
+    height: 500px; /* Lambi image */
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: transform 0.5s;
+  }
+
+  .card:hover img {
+    transform: scale(1.1);
+  }
+
+  .quote {
+    padding: 20px;
+    font-style: italic;
+    color: #800080;
+    font-size: 18px;
+  }
+
+  /* ===== Music Button ===== */
+  #musicBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 12px 22px;
+    border: none;
+    background: #ff66b2;
+    color: white;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  /* ===== Next Surprise Button ===== */
+  #nextBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 22px;
+    border: none;
+    background: #ff99cc;
+    color: white;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s, background 0.3s;
+  }
+
+  #nextBtn:hover {
+    transform: scale(1.1);
+    background: #ff66b2;
+  }
+
+  /* ===== Video Modal ===== */
+  #videoModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+  }
+
+  #videoModal video {
+    width: auto;
+    height: 90%;
+    aspect-ratio: 9 / 16;
+    border-radius: 15px;
+    background: black;
+  }
+
+  #closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      width: 80%;
+    }
+    #videoModal video {
+      height: 80%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Buttons -->
+<button id="musicBtn">Pause Music</button>
+<button id="nextBtn">Next Surprise 🎁</button>
+
+<!-- Gallery Cards -->
+<div class="card" data-video="Video/Ritu1.mp4">
+  <img src="img/Ritu1.jpg" alt="Love Image 1">
+  <div class="quote">"काजल लगाया करो आंखों में<br />
+  वो नजर से बचाएगा तुम्हे <br />
+  वही काजल आंखों को और भी खूबसूरत बनाएगा तुम्हे<br />
+  तुम बस ख्वाइश करो जिंदगी में कुछ भी -2 <br />
+  तारा खुद आसमान से टूट कर बताएगा तुम्हे💖"</div>
+</div>
+<div class="card" data-video="Video/Ritu5.mp4">
+  <img src="img/Ritu2.jpg" alt="Love Image 2">
+  <div class="quote">"काश तू चंद मै सितारा होता है <br />
+  आसमान में एक आशियाना हमारा होता <br />
+  लोग तुम्हे बस दूर से देखते <br />
+  की लोग तुम्हे बस दूर से देखते <br />
+  पास देखने का हक बस हमारा होता ✨"</div>
+</div>
+<div class="card" data-video="Video/Ritu3.mp4">
+  <img src="img/Ritu3.jpg" alt="Love Image 3">
+  <div class="quote">"की जो सक्स इस दिल में बस्ती है <br />
+वो कुछ भी पहन ले उसमें जचती है <br />
+और मेरी धड़कन रुक जाती है उस एक पल को <br />
+जब भी वो सारी पहन कर आती है <br />
+और कम्बक्त क्या खुशनसीब है उस आईने के <br />
+जिसके सामने वो रोज सजती है😊"</div>
+</div>
+<div class="card" data-video="Video/Ritu4.mp4">
+  <img src="img/Ritu4.jpg" alt="Love Image 4">
+  <div class="quote">" Jo ke bhar dekhne baithe use  <br />
+To saam kya ek umar bhi Kam lagti h <br />
+Wo itni khubsurat hai ki  <br />
+Uske aage mujhe duniya ki har khubsurati bhram lagti hai  🌸"</div>
+</div>
+<div class="card" data-video="Video/Ritu6.mp4">
+  <img src="img/Ritu5.jpg" alt="Love Image 5">
+  <div class="quote">"Raat Hote hi dil jisko yaad karta hai wo ho Tum <br />
+ Subah hote hi dil jisko dekhna chahta hai wo ho Tum <br />
+ Itna Sab kuch hone ke baad bhi <br />
+Har wakt jisse baat karne ka man karta hai wo ho tum 🎶"</div>
+</div>
+<div class="card" data-video="Video/Ritu2.mp4">
+  <img src="img/Ritu6.jpg" alt="Love Image 6">
+  <div class="quote">"Tum khush raho hamesha aur hum bas tumko hasate rahe <br /> Tum bolti raho kuch bhi pura din aur hum bas tumko sunte rahe <br />
+Aisi hi nhi Bechain hai hum <br />
+Kash tum soti raho mere samne aur hum bas tumko dekhte rahe 💘"</div>
+</div>
+
+
+<!-- Video Modal -->
+<div id="videoModal">
+  <span id="closeBtn">&times;</span>
+  <video id="videoPlayer" controls></video>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop autoplay>
+  <source src="Music/Chhavi1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // ===== Heart Particle Animation =====
+  const numHearts = 30;
+  for(let i=0;i<numHearts;i++){
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (5 + Math.random()*5) + 's';
+    heart.style.width = 8 + Math.random()*12 + 'px';
+    heart.style.height = heart.style.width;
+    document.body.appendChild(heart);
+  }
+
+  const bgMusic = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
+  const cards = document.querySelectorAll('.card');
+  const videoModal = document.getElementById('videoModal');
+  const videoPlayer = document.getElementById('videoPlayer');
+  const closeBtn = document.getElementById('closeBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  // Music Play/Pause
+  musicBtn.addEventListener('click', () => {
+    if(bgMusic.paused){
+      bgMusic.play();
+      musicBtn.textContent = "Pause Music";
+    } else {
+      bgMusic.pause();
+      musicBtn.textContent = "Play Music";
+    }
+  });
+
+  // Click on Card → Play Vertical Video & Pause Music
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      bgMusic.pause();
+      musicBtn.textContent = "Play Music";
+      const videoSrc = card.getAttribute('data-video');
+      videoPlayer.src = videoSrc;
+      videoModal.style.display = 'flex';
+      videoPlayer.play();
+    });
+  });
+
+  // Close Video Modal
+  closeBtn.addEventListener('click', () => {
+    videoPlayer.pause();
+    videoModal.style.display = 'none';
+  });
+
+  // Next Surprise Button
+  nextBtn.addEventListener('click', () => {
+    window.location.href = 'final.html'; // Replace with your second page filename
+  });
+</script>
+
+</body>
+</html>
